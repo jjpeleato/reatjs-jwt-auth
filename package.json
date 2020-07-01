@@ -9,7 +9,8 @@
     "jwt",
     "jwt-authentication",
     "npm",
-    "yarn"
+    "yarn",
+    "eslint"
   ],
   "homepage": "https://www.jjpeleato.com/",
   "author": "@jjpeleato",
@@ -29,8 +30,6 @@
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^3.5.0",
-    "@typescript-eslint/parser": "^3.5.0",
     "dotenv-cli": "^3.2.0",
     "env-cmd": "^10.1.0",
     "husky": "^4.2.5"
