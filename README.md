@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React JS: JWT Authentication system
 
-## Available Scripts
+React JS authentication system using JWT (JSON Web Tokens) and react-router
 
-In the project directory, you can run:
+## Project
 
-### `yarn start`
+Built with React JS platform using the following technologies: JavaScript, React JS, React Router, JSX, NPM or Yarn and more.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Installing dependencies
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You must install the environment manually: Node.JS and NPM or Yarn.
 
-### `yarn test`
+For more information visit:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node and NPM: https://nodejs.org/es/
+- Yarn: https://yarnpkg.com/es-ES/
 
-### `yarn build`
+**Note:** If you work with Windows. To execute the commands, we recommend installing **Cygwin** http://www.cygwin.com/
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Note:** I recommend installing the following IDE for PHP Programming: Visual Studio Code (https://code.visualstudio.com/) or PHPStorm (recommended) (https://www.jetbrains.com/phpstorm/).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Project skeleton
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+~
 
-### `yarn eject`
+### Installing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Open your terminal and browse to the root location of your project.
+3. Run `$yarn install --dev`.
+3. Run `$yarn start`.
+4. End. Happy developing.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Developing with NPM or Yarn and Gulp.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+~
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Technologies and tools
 
-## Learn More
+The present project uses several technologies and tools for the automation and development process. For more information and learning visit the following links.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. React: https://reactjs.org/
+2. Prop-types: https://github.com/facebook/prop-types
+3. React-Router: https://github.com/ReactTraining/react-router
+4. Git: https://git-scm.com/
+5. NPM: https://www.npmjs.com/
+6. Yarn: https://yarnpkg.com/
+7. EditorConfig: https://editorconfig.org/
+8. Human.txt: http://humanstxt.org/
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Note:** Thanks a lot of developers that to work on this projects.
 
-### Code Splitting
+### Others clarifications
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+~
 
-### Analyzing the Bundle Size
+## Finally
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+More information on the following commits. If required.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Grettings **@jjpeleato**.

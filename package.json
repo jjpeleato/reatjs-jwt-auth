@@ -1,20 +1,50 @@
 {
   "name": "reatjs-jwt-auth",
   "version": "0.1.0",
+  "description": "React JS authentication system using JWT (JSON Web Tokens) and react-router",
+  "keywords": [
+    "javascript",
+    "react",
+    "reactjs",
+    "jwt",
+    "jwt-authentication",
+    "npm",
+    "yarn"
+  ],
+  "homepage": "https://www.jjpeleato.com/",
+  "author": "@jjpeleato",
+  "license": "GPL-2.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjpeleato/reatjs-jwt-auth.git"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^3.2.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-react-hooks": "^4.0.5",
+    "husky": "^4.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .jsx,.js src"
   },
   "eslintConfig": {
     "extends": "react-app"
