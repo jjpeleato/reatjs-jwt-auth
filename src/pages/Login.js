@@ -11,14 +11,15 @@ class Login extends Component {
 
     this.state = {
       history,
-      username: '',
+      email: '',
       password: '',
+      error: '',
     };
 
     this.authService = new AuthService();
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     if (this.authService.isLoggedIn() === true) {
       const { history } = this.state;
       history.replace(ROUTE_HOME);
@@ -27,13 +28,21 @@ class Login extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
-    const { username, password } = this.state;
+    const { history, email, password } = this.state;
 
-    if (username === '' || password === '') {
+    if (email === '' || password === '') {
       return;
     }
 
-    console.log(username, password);
+    this.authService.login(email, password)
+      .then(() => {
+        history.replace(ROUTE_HOME);
+      })
+      .catch((err) => {
+        this.setState({
+          error: err.message,
+        });
+      });
   }
 
   handleChange = (e) => {
@@ -44,16 +53,18 @@ class Login extends Component {
     });
   }
 
-  render() {
+  render = () => {
+    const { error } = this.state;
+
     return (
       <div className="login">
         <div className="login__box">
-          <h1>Login</h1>
+          <h1 className="login__title">Login</h1>
           <form onSubmit={this.handleFormSubmit}>
             <input
               className="login__item"
-              placeholder="Username"
-              name="username"
+              placeholder="Email"
+              name="email"
               type="text"
               onChange={this.handleChange}
             />
@@ -66,10 +77,11 @@ class Login extends Component {
             />
             <input
               className="login__submit"
-              value="SUBMIT"
+              value="Submit"
               type="submit"
             />
           </form>
+          <p className="login__result">{error}</p>
         </div>
       </div>
     );

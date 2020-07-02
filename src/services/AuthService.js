@@ -6,14 +6,21 @@ class AuthService {
   }
 
   /**
-   * TODO Short description
+   * Login process and set token
    *
-   * @param username
+   * @param email
    * @param password
    */
-  login = (username, password) => {
-    this.setToken(username + password);
-  }
+  login = (email, password) => this.fetch(this.domain, {
+    method: 'POST',
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  }).then((res) => {
+    this.setToken(res.token);
+    return Promise.resolve(res);
+  })
 
   /**
    * Clear user token and profile data from localStorage
@@ -70,6 +77,43 @@ class AuthService {
    */
   getProfile() {
     return jwtDecode(this.getToken());
+  }
+
+  /**
+   * Performs api calls sending the required authentication headers
+   *
+   * @param url
+   * @param options
+   * @returns {Promise<any>}
+   */
+  fetch = (url, options) => {
+    const headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    };
+
+    if (this.isLoggedIn()) {
+      headers.Authorization = `Bearer ${this.getToken()}`;
+    }
+
+    return fetch(url, { headers, ...options })
+      .then(this.checkStatus)
+      .then((response) => response.json());
+  }
+
+  /**
+   * Raises an error in case response status is not a success
+   *
+   * @param response
+   * @returns {*}
+   */
+  checkStatus = (response) => {
+    if (response.status >= 200 && response.status < 300) {
+      return response;
+    }
+    const error = new Error(response.statusText);
+    error.response = response;
+    throw error;
   }
 }
 
