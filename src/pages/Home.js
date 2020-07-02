@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import authRequired from '../components/AuthRequired';
 
-function Home() {
-  return <h1>Hello World!</h1>;
+class Home extends Component {
+  constructor(props) {
+    super(props);
+
+    console.log(props);
+  }
+
+  render() {
+    return (
+      <p>Hello World!</p>
+    );
+  }
 }
 
-export default Home;
+export default authRequired(Home);
