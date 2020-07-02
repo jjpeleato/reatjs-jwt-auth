@@ -1,35 +1,59 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { ROUTE_LOGIN } from '../constants/routes';
 import AuthService from '../services/AuthService';
 
-const authRequired = (AuthComponent) => class AuthContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.authService = new AuthService();
-    this.state = {
-      history: null,
-      user: null,
-    };
-  }
+const authRequired = (AuthComponent) => {
+  class AuthContainer extends Component {
+    constructor(props) {
+      super(props);
 
-  componentDidMount = () => {
-    if (this.authService.isLogin() === false) {
-      console.log('not login');
-    } else {
-      console.log('login');
+      const { history } = props;
+
+      this.state = {
+        history,
+        user: null,
+      };
+
+      this.authService = new AuthService();
+    }
+
+    componentDidMount = () => {
+      const { history } = this.state;
+
+      if (this.authService.isLoggedIn() === false) {
+        history.replace(ROUTE_LOGIN);
+      } else {
+        try {
+          const profile = this.authService.getProfile();
+          this.setState({
+            user: profile,
+          });
+        } catch (e) {
+          this.authService.logout();
+          history.replace(ROUTE_LOGIN);
+        }
+      }
+    }
+
+    render = () => {
+      const { history, user } = this.state;
+
+      if (user !== null) {
+        return (
+          <AuthComponent history={history} user={user} />
+        );
+      }
+
+      return null;
     }
   }
 
-  render = () => {
-    const { history, user } = this.state;
+  AuthContainer.propTypes = {
+    history: PropTypes.shape({ replace: PropTypes.func }).isRequired,
+  };
 
-    if (user !== null) {
-      return (
-        <AuthComponent history={history} user={user} />
-      );
-    }
-
-    return null;
-  }
+  return AuthContainer;
 };
 
 export default authRequired;

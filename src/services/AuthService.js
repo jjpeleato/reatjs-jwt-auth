@@ -5,6 +5,12 @@ class AuthService {
     this.domain = process.env.REACT_APP_URL_AUTH;
   }
 
+  /**
+   * TODO Short description
+   *
+   * @param username
+   * @param password
+   */
   login = (username, password) => {
     this.setToken(username + password);
   }
@@ -21,7 +27,7 @@ class AuthService {
    *
    * @returns {boolean}
    */
-  isLogin = () => {
+  isLoggedIn = () => {
     const token = this.getToken();
     return !!token && !this.isTokenExpired(token);
   }
@@ -51,11 +57,20 @@ class AuthService {
   }
 
   /**
-   * Retrieves the user token from localStorage
+   * Retrieves the token from localStorage
    *
    * @returns {string}
    */
   getToken = () => localStorage.getItem('token');
+
+  /**
+   * Retrieves the user from token
+   *
+   * @returns {*}
+   */
+  getProfile() {
+    return jwtDecode(this.getToken());
+  }
 }
 
 export default AuthService;
