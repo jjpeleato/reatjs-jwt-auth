@@ -28,12 +28,12 @@ class Home extends Component {
 
   render = () => {
     const { user } = this.state;
+    const { username, roles } = user;
+
     return (
       <div className="home">
-        <p className="home__text">
-          Hello
-          {user.name}
-        </p>
+        <p className="home__text">{`Hello ${username}`}</p>
+        <p className="home__text">{`Your role is: ${roles}`}</p>
         <button
           type="button"
           className="form-submit"
@@ -48,7 +48,12 @@ class Home extends Component {
 
 Home.propTypes = {
   history: PropTypes.shape({ replace: PropTypes.func }).isRequired,
-  user: PropTypes.objectOf(PropTypes.object).isRequired,
+  user: PropTypes.shape({
+    exp: PropTypes.number.isRequired,
+    iat: PropTypes.number.isRequired,
+    roles: PropTypes.array.isRequired,
+    username: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default authRequired(Home);
